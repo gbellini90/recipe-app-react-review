@@ -3,14 +3,19 @@ import { Card, CardTitle, Button } from 'react-materialize'
 import v4 from 'uuid'
 
 const Category = (props) => {
+
+  const handleClick = () => {
+    props.loadCategory(props.name)
+  }
+
   return (
     <Card
       key={v4()}
-      header={<CardTitle key={v4()} image={/* category image here */} />}
-      title={/* category name here */}
-      actions={[<Button key={v4()} onClick={/* fetch for recipes */} waves='light'>Find Recipes</Button>]}
+      header={<CardTitle key={v4()} image={props.image} />}
+      title={props.name}
+      actions={[<Button key={v4()} onClick={handleClick} waves='light'> Find Recipes </Button >]}
     >
-      {/* category description here */}
+      {props.desc}
     </Card>
   )
 }
